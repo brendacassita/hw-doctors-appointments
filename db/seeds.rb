@@ -19,6 +19,8 @@ phy4 = Physician.create(name: 'Lei')
 
 pat1 = Patient.create(name: 'Brenda')
 pat2 = Patient.create(name: 'Cassius')
+pat3 = Patient.create(name: 'Zach')
+
 
 Appointment.create(physician_id: phy1.id, patient_id: pat1.id, appointment_date: '2023-06-12')
 Appointment.create(physician_id: phy2.id, patient_id: pat2.id, appointment_date: '2022-06-01')

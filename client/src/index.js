@@ -7,6 +7,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import About from "./pages/About";
 import DataProvider from "./providers/DataProvider";
 import Home from "./pages/Home";
+import Physicians from "./pages/Physicians";
+import Patients from "./pages/Patients";
+import Appointments from "./pages/Appointments";
 
 
 const NotFound = ()=>{
@@ -20,6 +23,11 @@ ReactDOM.render(
         <Route path="/" element={<App />}>
           <Route path="/about" element={<About />} />
           <Route index path="/home" element={<Home />} />
+          <Route path="/physicians" element={<Physicians/>} />
+          <Route path="/patients" element={<Patients />} />
+          <Route path="/appointments" element={<Appointments />} />
+
+
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
