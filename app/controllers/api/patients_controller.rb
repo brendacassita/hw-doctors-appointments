@@ -23,6 +23,7 @@ before_action :set_patient, only: [:show, :destroy, :update]
   end
 
   def update
+    patient = Patient.find(params[:id])
     if(@patient.update(patient_params))
     render json: @patient
   else

@@ -1,18 +1,32 @@
-import useAxios from 'axios-hooks'
+
 import AxiosContainer from '../components/AxiosContainer'
-import StringifyJSON from '../components/StringifyJSON'
+import List from '../components/List'
+import Card from '../components/Card'
+import useAxiosOnMount from '../hooks/useAxiosOnMount'
 
 const Physicians= ()=>{
-  const [{data:physicians, loading, error}, refetcg] = useAxios('/api/physicians')
+  const {data:physicians, loading, error} = useAxiosOnMount('/api/physicians')
   
   return (
       <div>
-        <AxiosContainer title={'Physician'}loading={loading} error={error}>
+        <hr/>
+        <AxiosContainer title={'Physicians: '}loading={loading} error={error}>
+        
+          <List
+          data={physicians}
+          renderItem={(physician)=>{
+            return (
+              <Card key={physician.id}>
+                <h2>{physician.name}</h2>
+              </Card>
+            )
+          }}
+          />
           
-          <StringifyJSON json = {physicians} />
           
           </AxiosContainer>
-      </div>
+          </div>
+      
   )
 }
 

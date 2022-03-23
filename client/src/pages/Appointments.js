@@ -1,18 +1,25 @@
-import useAxios from 'axios-hooks'
+import Appointment from '../components/Appointment'
 import AxiosContainer from '../components/AxiosContainer'
-import StringifyJSON from '../components/StringifyJSON'
+import List from '../components/List';
+import useAxiosOnMount from '../hooks/useAxiosOnMount';
+
 
 const Appointments= ()=>{
-  const [{data:appointment, loading, error}, refetcg] = useAxios('/api/appointments')
   
+  const {data:appointments, loading, error} = useAxiosOnMount('/api/appointments/all_yo')
+  console.log(appointments)
+  const renderOneAppointment = (appointment) =>{
+    return <Appointment key = {appointment.id}{...appointment}/>
+  }
   return (
-      <div>
-        <AxiosContainer title={'Appointments'}loading={loading} error={error}>
+    <div>
+      <hr/>
+        <AxiosContainer title={'Appointments:'}loading={loading} error={error}>
           
-          <StringifyJSON json = {appointment} />
+          <List data={appointments} renderItem={renderOneAppointment} />
           
           </AxiosContainer>
-      </div>
+          </div>
   )
 }
 

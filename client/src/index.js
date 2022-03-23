@@ -10,6 +10,8 @@ import Home from "./pages/Home";
 import Physicians from "./pages/Physicians";
 import Patients from "./pages/Patients";
 import Appointments from "./pages/Appointments";
+import AppointmentForm from "./components/AppointmentForm";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const NotFound = ()=>{
@@ -26,6 +28,8 @@ ReactDOM.render(
           <Route path="/physicians" element={<Physicians/>} />
           <Route path="/patients" element={<Patients />} />
           <Route path="/appointments" element={<Appointments />} />
+          <Route path="/appointments/new" element={<AppointmentForm />} />
+
 
 
           <Route path="*" element={<NotFound />} />

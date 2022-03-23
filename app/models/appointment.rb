@@ -6,7 +6,7 @@ class Appointment < ApplicationRecord
   def self.all_and_then_some
     appointments = self.all
     return appointments.map do |appointment|
-      {id: appointment.id, physician: appointment.physician, patient: appointment.patient}
+      {id: appointment.id, date: appointment.appointment_date, physician: appointment.physician, patient: appointment.patient}
     
     # binding.pry
     end
