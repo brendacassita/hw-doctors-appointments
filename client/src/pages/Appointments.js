@@ -10,6 +10,7 @@ const Appointments= ()=>{
   console.log(appointments)
   const renderOneAppointment = (appointment) =>{
     return <Appointment key = {appointment.id}{...appointment}/>
+  
   }
   return (
     <div>
